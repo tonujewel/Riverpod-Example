@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_example/core/constant/app_constant.dart';
-import 'package:riverpod_example/core/model/home_model.dart';
-import 'package:riverpod_example/core/widgets/primary_container.dart';
-import 'package:riverpod_example/feature/counter/screen/counter_screen.dart';
-import 'package:riverpod_example/feature/user_list/screen/users_screen.dart';
+
+import '../../core/constant/app_constant.dart';
+import '../../core/model/home_model.dart';
+import '../../core/widgets/primary_container.dart';
+import '../counter/screen/counter_screen.dart';
+import '../theme_change/screen/theme_change_screen.dart';
+import '../user_list/screen/users_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,6 +28,9 @@ class HomeScreen extends StatelessWidget {
               }
               if (AppConstant.homeList[index].id == 2) {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const UsersScreen()));
+              }
+              if (AppConstant.homeList[index].id == 3) {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ThemeChangeScreen()));
               }
             },
           );
@@ -54,7 +59,7 @@ class HomeItemWidget extends StatelessWidget {
           children: [
             CircleAvatar(
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Image.asset(data.imgPath, height: 30),
               ),
             ),

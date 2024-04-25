@@ -8,9 +8,7 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(splashProvider(context));
-    // if(){
 
-    // }
     return Scaffold(
       body: Center(
         child: Image.asset(

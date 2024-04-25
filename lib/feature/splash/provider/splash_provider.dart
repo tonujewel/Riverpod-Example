@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_example/feature/home/homse_screen.dart';
+
+import '../../home/homse_screen.dart';
 
 splashProvider(BuildContext context) => FutureProvider((ref) async {
       await Future.delayed(const Duration(seconds: 3));
