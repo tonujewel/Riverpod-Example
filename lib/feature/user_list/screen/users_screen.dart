@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_example/feature/user_list/model/user_response.dart';
-import 'package:riverpod_example/feature/user_list/provider/user_data_provider.dart';
+
+import '../model/user_response.dart';
+import '../provider/user_data_provider.dart';
 
 class UsersScreen extends ConsumerWidget {
   const UsersScreen({super.key});
