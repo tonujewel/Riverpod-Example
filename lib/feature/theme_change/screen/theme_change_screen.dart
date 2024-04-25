@@ -8,8 +8,7 @@ class ThemeChangeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final theme = ref.read(themeProvider.notifier).themeData;
-
+    List<String> tempData = ref.watch(themeProvider).tempData;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Change Theme"),
@@ -31,6 +30,20 @@ class ThemeChangeScreen extends ConsumerWidget {
               },
               child: const Text('Dark Theme'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(themeProvider).updateCount();
+              },
+              child: const Text('Update count'),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: tempData.length,
+                itemBuilder: (c, i) {
+                  return Text(tempData[i]);
+                },
+              ),
+            )
           ],
         ),
       ),
