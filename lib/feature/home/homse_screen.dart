@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_example/feature/login/screen/login_screen.dart';
 
 import '../../core/constant/app_constant.dart';
 import '../../core/model/home_model.dart';
@@ -31,6 +32,9 @@ class HomeScreen extends StatelessWidget {
               }
               if (AppConstant.homeList[index].id == 3) {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ThemeChangeScreen()));
+              }
+              if (AppConstant.homeList[index].id == 4) {
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>  LoginScreen()));
               }
             },
           );
