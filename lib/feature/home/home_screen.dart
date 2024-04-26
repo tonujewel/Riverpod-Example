@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_example/feature/login/screen/login_screen.dart';
 
 import '../../core/constant/app_constant.dart';
 import '../../core/model/home_model.dart';
 import '../../core/widgets/primary_container.dart';
 import '../counter/screen/counter_screen.dart';
+import '../login/screen/login_screen.dart';
 import '../theme_change/screen/theme_change_screen.dart';
 import '../user_list/screen/users_screen.dart';
 
@@ -15,9 +15,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Riverpod Example"),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 5.0,
+          crossAxisSpacing: 10.0,
+          childAspectRatio: 1 / .7,
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         itemCount: AppConstant.homeList.length,
         itemBuilder: (_, index) {
@@ -34,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ThemeChangeScreen()));
               }
               if (AppConstant.homeList[index].id == 4) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  LoginScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
               }
             },
           );
@@ -59,7 +65,9 @@ class HomeItemWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: PrimaryContainer(
-        child: Row(
+        allPadding: 0,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
               child: Padding(
@@ -67,10 +75,9 @@ class HomeItemWidget extends StatelessWidget {
                 child: Image.asset(data.imgPath, height: 30),
               ),
             ),
-            const SizedBox(width: 20),
+            const SizedBox(height: 20),
             Text(
               data.title,
-              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),
