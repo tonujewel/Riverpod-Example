@@ -52,7 +52,7 @@ class LoginScreen extends ConsumerWidget {
                 if (isValid) {
                   LoginRequest body =
                       LoginRequest(username: usernameController.text, password: passwordController.text);
-                  ref.read(loginProvider).doLoginApiCall(body);
+                  ref.read(loginProvider).doLoginApiCall(body, context);
                 }
               },
               child: const Text('Login'),
